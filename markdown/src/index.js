@@ -11,12 +11,23 @@ import marked from 'marked';
 class App extends React.Component {
     state = {
         text : sampleText
-    };
+    }
+
+    componentWillMount(){
+        const localStorageText = localStorage.getItem('text');
+
+        if(localStorageText){
+            this.setState({text: localStorageText})
+        }
+    }
+
+    componentWillUpdate(nextProps, nextState){
+        localStorage.setItem('text', nextState.text);
+    }
 
     editText = e => {
         const text = e.target.value;
         this.setState({text});
-        
     };
 
     renderText = (text) => {
