@@ -28,12 +28,12 @@ class App extends React.Component {
     editText = e => {
         const text = e.target.value;
         this.setState({text});
-    };
+    }
 
     renderText = (text) => {
         const renderText = marked(text,  {sanitize: true});
         return { __html: renderText }
-    };
+    }
 
     render (){
         return (
