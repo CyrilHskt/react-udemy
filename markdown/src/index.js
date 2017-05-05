@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-//CSS
+//css
 import './style/css/bootstrap.min.css';
 import './index.css';
-//JS
+//js
 import { sampleText } from './sampleText';
 //import external libraries
 import marked from 'marked';
@@ -20,9 +20,9 @@ class App extends React.Component {
     };
 
     renderText = (text) => {
-        const renderText = marked(text,  {sanitarize: true});
-        
-    }
+        const renderText = marked(text,  {sanitize: true});
+        return { __html: renderText }
+    };
 
     render (){
         return (
@@ -41,9 +41,7 @@ class App extends React.Component {
                     </div>
                     <div className="col-sm-6">
                         <h1>Résultats</h1>
-                        <div>
-                            {this.state.text}
-                        </div>
+                        <div dangerouslySetInnerHTML={this.renderText(this.state.text)} />
                     </div>
                 </div>
             </div>
