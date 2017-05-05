@@ -5,6 +5,8 @@ import './style/css/bootstrap.min.css';
 import './index.css';
 //JS
 import { sampleText } from './sampleText';
+//import external libraries
+import marked from 'marked';
 
 class App extends React.Component {
     state = {
@@ -14,6 +16,11 @@ class App extends React.Component {
     editText = e => {
         const text = e.target.value;
         this.setState({text});
+        
+    };
+
+    renderText = (text) => {
+        const renderText = marked(text,  {sanitarize: true});
         
     }
 
