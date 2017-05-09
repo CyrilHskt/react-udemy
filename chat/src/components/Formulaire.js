@@ -47,6 +47,12 @@ class Formulaire extends React.Component {
             </div>
         )
     }
+
+    static propTypes = {
+        addMessage: React.PropTypes.func.isRequired,
+        pseudo: React.PropTypes.string.isRequired,
+        length: React.PropTypes.number.isRequired
+    }
 }
 
 export default Formulaire;

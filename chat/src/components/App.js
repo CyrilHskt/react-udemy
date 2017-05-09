@@ -47,7 +47,6 @@ class App extends React.Component {
         const messages = Object
             .keys(this.state.messages)
             .map(key => <Message key={key} details={this.state.messages[key]} isUser={this.isUser} />);
-        console.log(messages);
 
         return (
             <div className="box">
@@ -62,9 +61,14 @@ class App extends React.Component {
                         {messages}
                     </ReactCSSTransitionGroup>
                 </div>
-                <Formulaire addMessage={this.addMessage} pseudo={this.props.params.pseudo} length="140" />
+                <Formulaire addMessage={this.addMessage} pseudo={this.props.params.pseudo} length={140} />
             </div>
         )
+    }
+
+
+    static propTypes = {
+        params: React.PropTypes.object.isRequired
     }
 }
 
