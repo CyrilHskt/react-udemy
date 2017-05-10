@@ -1,7 +1,18 @@
 import React from 'react';
 import Header from './Header';
+import Admin from './Admin';
+//Recettes
+import recettes from '../recettes';
 
 class App extends React.Component {
+    state = {
+
+    }
+
+    chargerExemple = () => {
+        this.setState({recettes});
+    }
+    
     render(){
         return (
             <div className="box">
@@ -9,6 +20,7 @@ class App extends React.Component {
                 <div className="cards">
                     <div className="card"></div>
                 </div>
+                <Admin chargerExemple={this.chargerExemple} />
             </div>
         )
     }
